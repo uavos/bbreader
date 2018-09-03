@@ -7,7 +7,7 @@
 QT += widgets core network
 
 TEMPLATE = lib
-CONFIG += plugin c++11 silent
+CONFIG += plugin c++14 silent
 
 BIN_DIR = bin
 OBJ_DIR = obj
@@ -22,7 +22,8 @@ RCC_DIR = $$OBJ_DIR
 
 SOURCES += \
     mainwindow.cpp \
-    bbreaderplugin.cpp
+    bbreaderplugin.cpp \
+    escparser.cpp
 
 INCLUDEPATH += /usr/share/uavos/gcu/sdk/inc/
 INCLUDEPATH += ../../share/tcpclient
@@ -33,7 +34,8 @@ LIBS += -lprotobuf
 HEADERS  += \
     /usr/share/uavos/gcu/sdk/inc/plugin_interface.h \
     mainwindow.h \
-    bbreaderplugin.h
+    bbreaderplugin.h \
+    escparser.h
 
 FORMS += \
     mainwindow.ui
