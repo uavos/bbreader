@@ -55,7 +55,6 @@ void MainWindow::on_pushButton_clicked()
         std::copy(packet.begin(), packet.end(), std::back_inserter(ba));
         mandala->downlinkReceived(ba);
         packet.clear();
-        packetsCount++;
     }
     ui->labelErrorsCount->setText(QString("Errors: %1").arg(errorsCount));
     ui->labelPacketsCount->setText(QString("Packets: %1").arg(packetsCount));
