@@ -27,8 +27,8 @@ void MainWindow::on_pushButton_clicked()
     if(filename.isEmpty())
         return;
 
-    ui->labelErrorsCount->setText(QString("Errors: %1").arg("..."));
-    ui->labelPacketsCount->setText(QString("Packets: %1").arg("..."));
+    ui->labelErrorsCount->setText(QString("Errors: %1").arg(0));
+    ui->labelPacketsCount->setText(QString("Packets: %1").arg(0));
 
     QFile file(filename);
     file.open(QIODevice::ReadOnly);
@@ -55,9 +55,10 @@ void MainWindow::on_pushButton_clicked()
         std::copy(packet.begin(), packet.end(), std::back_inserter(ba));
         mandala->downlinkReceived(ba);
         packet.clear();
+        qApp->processEvents();
+        ui->labelErrorsCount->setText(QString("Errors: %1").arg(errorsCount));
+        ui->labelPacketsCount->setText(QString("Packets: %1").arg(packetsCount));
     }
-    ui->labelErrorsCount->setText(QString("Errors: %1").arg(errorsCount));
-    ui->labelPacketsCount->setText(QString("Packets: %1").arg(packetsCount));
     var->rec->setRecording(false);
     var->rec->close();
 }
