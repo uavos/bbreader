@@ -42,6 +42,7 @@ void MainWindow::on_pushButton_clicked()
     int errorsCount = 0;
     int packetsCount = 0;
     EscParser::DataBuffer packet;
+    auto tp1 = std::chrono::high_resolution_clock::now();
     while(true)
     {
         auto result = parser.extractData(dataBuffer, packet);
@@ -55,7 +56,12 @@ void MainWindow::on_pushButton_clicked()
         std::copy(packet.begin(), packet.end(), std::back_inserter(ba));
         mandala->downlinkReceived(ba);
         packet.clear();
-        qApp->processEvents();
+        auto tp2 = std::chrono::high_resolution_clock::now();
+        if(std::chrono::duration_cast<std::chrono::milliseconds>(tp2 - tp1).count() > 100)
+        {
+            tp1 = tp2;
+            qApp->processEvents();
+        }
         ui->labelErrorsCount->setText(QString("Errors: %1").arg(errorsCount));
         ui->labelPacketsCount->setText(QString("Packets: %1").arg(packetsCount));
     }
