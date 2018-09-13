@@ -41,26 +41,33 @@ void MainWindow::on_pushButton_clicked()
     var->rec->setRecording(true);
     int errorsCount = 0;
     int packetsCount = 0;
-    EscParser::DataBuffer packet;
+    int packetsMeasure = 0;
     auto tp1 = std::chrono::high_resolution_clock::now();
     while(true)
     {
+        EscParser::DataBuffer packet;
         auto result = parser.extractData(dataBuffer, packet);
         if(result == EscParser::erDataEnd)
             break;
         else if(result == EscParser::erCrcError || result == EscParser::erUnknownError)
             errorsCount++;
         else if(result == EscParser::erOk)
-            packetsCount++;
-        QByteArray ba;
-        std::copy(packet.begin(), packet.end(), std::back_inserter(ba));
-        mandala->downlinkReceived(ba);
-        packet.clear();
+        {
+            if(packet[0] == idx_downstream)
+            {
+                packetsCount++;
+                packetsMeasure++;
+                QByteArray ba;
+                std::copy(packet.begin(), packet.end(), std::back_inserter(ba));
+                mandala->downlinkReceived(ba);
+            }
+        }
         auto tp2 = std::chrono::high_resolution_clock::now();
         if(std::chrono::duration_cast<std::chrono::milliseconds>(tp2 - tp1).count() > 100)
         {
             tp1 = tp2;
             qApp->processEvents();
+            packetsMeasure = 0;
         }
         ui->labelErrorsCount->setText(QString("Errors: %1").arg(errorsCount));
         ui->labelPacketsCount->setText(QString("Packets: %1").arg(packetsCount));
