@@ -6,32 +6,38 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>460</width>
-    <height>226</height>
+    <width>591</width>
+    <height>281</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>BlackBox Reader</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout">
+   <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0,0">
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="QLabel" name="labelPacketsCount">
-        <property name="text">
-         <string>Packets: 0</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="labelErrorsCount">
-        <property name="text">
-         <string>Errors: 0</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
+     <widget class="QLabel" name="labelErrorsCount">
+      <property name="text">
+       <string>Errors: 0</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="labelPacketsCount">
+      <property name="text">
+       <string>Packets: 0</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="labelBytes">
+      <property name="text">
+       <string>Bytes processed: 0/0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
     </item>
     <item>
      <widget class="QPushButton" name="pushButton">
@@ -47,7 +53,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>460</width>
+     <width>591</width>
      <height>31</height>
     </rect>
    </property>

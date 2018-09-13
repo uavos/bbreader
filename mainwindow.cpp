@@ -71,7 +71,9 @@ void MainWindow::on_pushButton_clicked()
         }
         ui->labelErrorsCount->setText(QString("Errors: %1").arg(errorsCount));
         ui->labelPacketsCount->setText(QString("Packets: %1").arg(packetsCount));
+        ui->labelBytes->setText(QString("Bytes processed: %1/%2").arg(file.size() - dataBuffer.size()).arg(file.size()));
     }
     var->rec->setRecording(false);
     var->rec->close();
+    ui->labelBytes->setText("FINISHED");
 }
