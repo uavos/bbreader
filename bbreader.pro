@@ -23,7 +23,7 @@ RCC_DIR = $$OBJ_DIR
 SOURCES += \
     mainwindow.cpp \
     bbreaderplugin.cpp \
-    escparser.cpp
+    EscReader.cpp
 
 INCLUDEPATH += /usr/share/uavos/gcu/sdk/inc/
 INCLUDEPATH += ../../share/tcpclient
@@ -35,7 +35,7 @@ HEADERS  += \
     /usr/share/uavos/gcu/sdk/inc/plugin_interface.h \
     mainwindow.h \
     bbreaderplugin.h \
-    escparser.h
+    EscReader.h
 
 FORMS += \
     mainwindow.ui

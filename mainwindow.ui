@@ -6,29 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>591</width>
-    <height>281</height>
+    <width>608</width>
+    <height>231</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>BlackBox Reader</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0,0">
-    <item>
-     <widget class="QLabel" name="labelErrorsCount">
-      <property name="text">
-       <string>Errors: 0</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="labelPacketsCount">
-      <property name="text">
-       <string>Packets: 0</string>
-      </property>
-     </widget>
-    </item>
+   <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0">
     <item>
      <widget class="QLabel" name="labelBytes">
       <property name="text">
@@ -53,7 +39,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>591</width>
+     <width>608</width>
      <height>31</height>
     </rect>
    </property>
