@@ -14,7 +14,7 @@
    <string>BlackBox Reader</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0">
+   <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0">
     <item>
      <widget class="QLabel" name="labelBytes">
       <property name="text">
@@ -22,6 +22,13 @@
       </property>
       <property name="alignment">
        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEditTelemetryName">
+      <property name="placeholderText">
+       <string>Telemetry name</string>
       </property>
      </widget>
     </item>

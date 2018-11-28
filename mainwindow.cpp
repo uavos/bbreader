@@ -35,6 +35,7 @@ void MainWindow::on_pushButton_clicked()
     connect(&reader, &EscReader::packet_read, &m, &QMandalaItem::downlinkReceived);
 
     m.rec->setRecording(true);
+    m.rec->uavNameOverride = ui->lineEditTelemetryName->text();
 
     auto tp1 = std::chrono::high_resolution_clock::now();
     size_t bytesReaded = 0;
