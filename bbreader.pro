@@ -26,10 +26,6 @@ SOURCES += \
     EscReader.cpp
 
 INCLUDEPATH += /usr/share/uavos/gcu/sdk/inc/
-INCLUDEPATH += ../../share/tcpclient
-INCLUDEPATH += ../../share/protocol
-
-LIBS += -lprotobuf
 
 HEADERS  += \
     /usr/share/uavos/gcu/sdk/inc/plugin_interface.h \
